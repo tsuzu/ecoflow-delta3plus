@@ -13,9 +13,10 @@ Three implementations live here:
   the CDC-ACM telemetry protocol.
 - **Python (reference / minimal)**: `ecoflow_hid.py` — HID only,
   charge % + runtime only.
-- **BLE exporter (Python)**: `ble/` — total/AC/solar/USB power,
-  cell temperature and precise charge % over Bluetooth LE,
-  as Prometheus metrics.
+- **BLE exporter (Go)**: `cmd/ecoflow-ble-exporter` +
+  `internal/efble` — total/AC/solar/USB power, cell temperature
+  and precise charge % over Bluetooth LE, as Prometheus metrics.
+  The protocol is a Go port of ha-ef-ble's eflib; see `ble/`.
 
 DELTA 3 Plus only; plain DELTA 3 has no USB HID UPS function.
 
@@ -111,7 +112,8 @@ If the unit is unplugged, the exporter serves `ecoflow_up 0` (and no
 stale readings) and recovers automatically when it reappears.
 
 For power telemetry (input/output watts per port group), see the
-BLE exporter in `ble/` (Prometheus on `:9747`).
+BLE exporter: `cmd/ecoflow-ble-exporter` (Prometheus on `:9747`,
+sample unit `deploy/ecoflow-ble-exporter.service`, docs in `ble/`).
 
 ## Status
 

@@ -1,0 +1,20 @@
+[Unit]
+Description=EcoFlow BLE Prometheus exporter (power telemetry)
+After=bluetooth.service network.target
+Wants=bluetooth.service
+
+[Service]
+# Fill in: your unit's BLE address and the path of the 0600 file
+# holding your EcoFlow account User ID.
+ExecStartPre=/usr/bin/bluetoothctl power on
+ExecStart=/usr/bin/python3 /opt/ecoflow-ble/exporter.py
+Environment=EF_BLE_ADDRESS=AA:BB:CC:DD:EE:FF
+Environment=EF_USER_ID_FILE=/home/USER/.config/ecoflow-ble/user-id
+Environment=EF_BLE_PORT=9747
+WorkingDirectory=/opt/ecoflow-ble
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target

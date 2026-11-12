@@ -1,0 +1,4 @@
+/ecoflow
+/ecoflow-exporter
+__pycache__/
+*.pyc

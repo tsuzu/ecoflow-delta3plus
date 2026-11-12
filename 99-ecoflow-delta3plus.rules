@@ -1,0 +1,5 @@
+# EcoFlow DELTA 3 Plus (3746:ffff) — allow userland USB access, no root needed.
+# Install: sudo cp 99-ecoflow-delta3plus.rules /etc/udev/rules.d/
+#          sudo udevadm control --reload-rules && sudo udevadm trigger
+#          (then unplug / replug the USB cable)
+SUBSYSTEM=="usb", ATTR{idVendor}=="3746", ATTR{idProduct}=="ffff", MODE="0660", GROUP="plugdev", TAG+="uaccess"

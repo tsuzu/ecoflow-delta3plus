@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovation-schema.json",
+  "dependencyDashboard": {
+    "enabled": true
+  },
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 10,
+  "vulnerabilityAlerts": {
+    "groupName": "vulnerability alerts",
+    "labels": [
+      "vulnerability"
+    ]
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "automerge": true,
+      "automergeType": "pr",
+      "description": "Automerge patch/minor (verified by daily Muse check; CI must be green)",
+      "matchUpdateTypes": [
+        "patch",
+        "minor"
+      ],
+      "platformAutomerge": true
+    },
+    {
+      "automerge": false,
+      "description": "Major updates are always manual review",
+      "labels": [
+        "major-update"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ]
+    }
+  ]
+}

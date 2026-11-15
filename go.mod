@@ -4,7 +4,9 @@ go 1.25.0
 
 require (
 	github.com/google/gousb v1.1.3
-	golang.org/x/sys v0.28.0
+	golang.org/x/sys v0.44.0
+	google.golang.org/protobuf v1.36.12
+	tinygo.org/x/bluetooth v0.17.0
 )
 
 require (
@@ -18,7 +20,5 @@ require (
 	github.com/tinygo-org/cbgo v0.1.0 // indirect
 	github.com/tinygo-org/pio v0.3.0 // indirect
 	golang.org/x/exp v0.0.0-20260727155853-b88d891fe743 // indirect
-	google.golang.org/protobuf v1.36.12 // indirect
-	tinygo.org/x/bluetooth v0.17.0 // indirect
 	tinygo.org/x/espradio v0.5.0 // indirect
 )
